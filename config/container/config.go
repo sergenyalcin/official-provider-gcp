@@ -125,17 +125,6 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 			Type:      "github.com/upbound/provider-gcp/apis/compute/v1beta1.Subnetwork",
 			Extractor: common.PathSelfLinkExtractor,
 		}
-		r.ServerSideApplyMergeStrategies["node_config"] = config.MergeStrategy{
-			ListMergeStrategy: config.ListMergeStrategy{
-				MergeStrategy: config.ListTypeMap,
-				ListMapKeys: config.ListMapKeys{
-					InjectedKey: config.InjectedKey{
-						Key:          "index",
-						DefaultValue: `"0"`,
-					},
-				},
-			},
-		}
 		config.MarkAsRequired(r.TerraformResource, "location")
 	})
 
@@ -149,18 +138,6 @@ func Configure(p *config.Provider) { //nolint:gocyclo
 		r.References["cluster"] = config.Reference{
 			Type:      "Cluster",
 			Extractor: common.ExtractResourceIDFuncPath,
-		}
-
-		r.ServerSideApplyMergeStrategies["node_config"] = config.MergeStrategy{
-			ListMergeStrategy: config.ListMergeStrategy{
-				MergeStrategy: config.ListTypeMap,
-				ListMapKeys: config.ListMapKeys{
-					InjectedKey: config.InjectedKey{
-						Key:          "index",
-						DefaultValue: `"0"`,
-					},
-				},
-			},
 		}
 
 		r.TerraformCustomDiff = func(diff *terraform.InstanceDiff, _ *terraform.InstanceState, _ *terraform.ResourceConfig) (*terraform.InstanceDiff, error) {
