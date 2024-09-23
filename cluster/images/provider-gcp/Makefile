@@ -74,7 +74,7 @@ batch-process: $(UP)
 		--auth-ext $(XPKG_DIR)/auth.yaml \
 		--crd-root $(XPKG_DIR)/crds \
 		--ignore $(XPKG_IGNORE) \
-		--crd-group-override monolith=* --crd-group-override config=$(PROVIDER_NAME) \
+		--crd-group-override monolith=* --crd-group-override config=gcp \
 		--package-metadata-template $(XPKG_DIR)/crossplane.yaml.tmpl \
 		--template-var XpkgRegOrg=$(XPKG_REG_ORGS) --template-var DepConstraint="$(DEP_CONSTRAINT)" --template-var ProviderName=$(PROVIDER_NAME) \
 		--concurrency $(CONCURRENCY) \
