@@ -31,12 +31,15 @@ spec:
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
+    deprecated: true
+    deprecationWarning: Deprecated, please use v1beta2. Deprecated since v2.4.0. Planned
+      removal in v2.7.0.
     name: v1beta1
     schema:
       openAPIV3Schema:
-        description: PerInstanceConfig is the Schema for the PerInstanceConfigs API.
-          A config defined for a single managed instance that belongs to an instance
-          group manager.
+        description: |-
+          PerInstanceConfig is the Schema for the PerInstanceConfigs API. A config defined for a single managed instance that belongs to an instance group manager.
+          Deprecated: This API version (v1beta1) has been deprecated in release v2.4.0 and is planned for removal in release v2.7.0.
         properties:
           apiVersion:
             description: |-
@@ -1144,7 +1147,7 @@ spec:
         - spec
         type: object
     served: true
-    storage: true
+    storage: false
     subresources:
       status: {}
   - additionalPrinterColumns:
@@ -2255,6 +2258,6 @@ spec:
         - spec
         type: object
     served: true
-    storage: false
+    storage: true
     subresources:
       status: {}

@@ -31,11 +31,15 @@ spec:
     - jsonPath: .metadata.creationTimestamp
       name: AGE
       type: date
+    deprecated: true
+    deprecationWarning: Deprecated, please use v1beta2. Deprecated since v2.4.0. Planned
+      removal in v2.7.0.
     name: v1beta1
     schema:
       openAPIV3Schema:
-        description: Service is the Schema for the Services API. A Cloud Run service
-          has a unique endpoint and autoscales containers.
+        description: |-
+          Service is the Schema for the Services API. A Cloud Run service has a unique endpoint and autoscales containers.
+          Deprecated: This API version (v1beta1) has been deprecated in release v2.4.0 and is planned for removal in release v2.7.0.
         properties:
           apiVersion:
             description: |-
@@ -3017,7 +3021,7 @@ spec:
         - spec
         type: object
     served: true
-    storage: true
+    storage: false
     subresources:
       status: {}
   - additionalPrinterColumns:
@@ -5808,6 +5812,6 @@ spec:
         - spec
         type: object
     served: true
-    storage: false
+    storage: true
     subresources:
       status: {}

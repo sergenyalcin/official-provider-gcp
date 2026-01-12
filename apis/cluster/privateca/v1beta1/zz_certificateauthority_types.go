@@ -1373,9 +1373,10 @@ type CertificateAuthorityStatus struct {
 
 // +kubebuilder:object:root=true
 // +kubebuilder:subresource:status
-// +kubebuilder:storageversion
+// +kubebuilder:deprecatedversion:warning="Deprecated, please use v1beta2. Deprecated since v2.4.0. Planned removal in v2.7.0."
 
 // CertificateAuthority is the Schema for the CertificateAuthoritys API. A CertificateAuthority represents an individual Certificate Authority.
+// Deprecated: This API version (v1beta1) has been deprecated in release v2.4.0 and is planned for removal in release v2.7.0.
 // +kubebuilder:printcolumn:name="SYNCED",type="string",JSONPath=".status.conditions[?(@.type=='Synced')].status"
 // +kubebuilder:printcolumn:name="READY",type="string",JSONPath=".status.conditions[?(@.type=='Ready')].status"
 // +kubebuilder:printcolumn:name="EXTERNAL-NAME",type="string",JSONPath=".metadata.annotations.crossplane\\.io/external-name"
